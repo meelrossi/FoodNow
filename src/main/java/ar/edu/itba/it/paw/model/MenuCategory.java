@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 public class MenuCategory {
 	LinkedList<Dish> dishes;
+	String categoryName;
 
 	public MenuCategory(LinkedList<Dish> dishes, String categoryName) {
 		super();
@@ -26,6 +27,4 @@ public class MenuCategory {
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
 	}
-
-	String categoryName;
 }

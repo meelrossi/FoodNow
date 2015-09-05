@@ -1,14 +1,16 @@
 package ar.edu.itba.it.paw.model;
 
+import java.util.List;
+
 public class Restaurant {
-	private Menu menu;
+	private List<MenuCategory> menu;
 	private double minAmount;
 	private String description;
 	private String name;
 	private Address address;
 	private int id;
 	
-	public Restaurant(Menu menu, double minAmount, String description, String name, Address address,
+	public Restaurant(List<MenuCategory> menu, double minAmount, String description, String name, Address address,
 			int id) {
 		super();
 		this.menu = menu;
@@ -19,11 +21,11 @@ public class Restaurant {
 		this.id = id;
 	}
 
-	public Menu getMenu() {
+	public List<MenuCategory> getMenu() {
 		return menu;
 	}
 
-	public void setMenu(Menu menu) {
+	public void setMenu(List<MenuCategory> menu) {
 		this.menu = menu;
 	}
 
