@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public abstract class Dao {
-	private static String database = "jdbc:postgresql://localhost/hotelapp";
-	private static String user = "postgres";
-	private static String password = "postgres";
+	private static String database = "jdbc:postgresql://localhost/pawTest";
+	private static String user = "paw";
+	private static String password = "paw";
 	protected Connection connection;
 	
 	public Dao() {

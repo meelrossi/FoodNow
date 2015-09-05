@@ -13,9 +13,9 @@ public class User {
 	private Calendar birthDate;
 	private HttpSession session;
 	private String password;
-	private Role role;
+	private int userLevel;
 
-	public User(int id, String name, String lastname, Address address, String email, Calendar birthDate, Role role) {
+	public User(int id, String name, String lastname, Address address, String email, Calendar birthDate, int userLevel) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -23,7 +23,7 @@ public class User {
 		this.address = address;
 		this.email = email;
 		this.birthDate = birthDate;
-		this.setRole(role);
+		this.userLevel = userLevel;
 	}
 
 	public int getId() {
@@ -82,12 +82,12 @@ public class User {
 		this.session = session;
 	}
 
-	public Role getRole() {
-		return role;
+	public int getUserLevel() {
+		return this.userLevel;
 	}
 
-	public void setRole(Role role) {
-		this.role = role;
+	public void setUserLevel(int userLevel) {
+		this.userLevel = userLevel;
 	}
 
 	public String getPassword() {
