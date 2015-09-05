@@ -1,19 +1,18 @@
 package ar.edu.itba.it.paw.controllers;
 
-import java.sql.SQLException;
-import java.util.List;
+import java.io.IOException;
 
-import ar.edu.itba.it.paw.dao.MenuCategoryDao;
-import ar.edu.itba.it.paw.dao.RestaurantDao;
-import ar.edu.itba.it.paw.model.MenuCategory;
-import ar.edu.itba.it.paw.model.Restaurant;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-public class RestaurantController {
-	public Restaurant getRestaurant(int id) throws SQLException{
-		RestaurantDao restaurantDao = RestaurantDao.getInstance();
-		MenuCategoryDao	menuCategoryDao = MenuCategoryDao.getInstance();
-		Restaurant restaurant = restaurantDao.getRestaurant(id);
-		List<MenuCategory> menu = 
-		restaurant.set
+public class RestaurantController extends HttpServlet {
+	public void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		RequestDispatcher dispatcher = req
+				.getRequestDispatcher("/WEB-INF/jsp/restaurant?id="
+						+ req.getParameter("id"));
 	}
 }

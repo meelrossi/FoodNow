@@ -21,7 +21,6 @@ public class Dish {
 		return id;
 	}
 
-
 	public String getName() {
 		return name;
 	}

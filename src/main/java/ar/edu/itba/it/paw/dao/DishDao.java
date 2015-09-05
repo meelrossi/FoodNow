@@ -10,25 +10,27 @@ import ar.edu.itba.it.paw.model.Dish;
 
 public class DishDao extends Dao {
 	public static DishDao instance;
-	
-	public DishDao(){
+
+	public DishDao() {
 		super();
 	}
-	
-	public static DishDao getInstance(){
+
+	public static DishDao getInstance() {
 		if (instance == null) {
 			instance = new DishDao();
 		}
 		return instance;
 	}
-	
-	public List<Dish> getDishList(int restaurantid, String menuCategory){
-		try{
+
+	public List<Dish> getDishList(int restaurantid, String menuCategory) {
+		try {
 			Statement stm = connection.createStatement();
 			List<Dish> dishes = new LinkedList<Dish>();
-			String dishquery = "SELECT * FROM DISH WHERE RESTAURANT_ID="+"'"+restaurantid+"'"+" AND MENU_CATEGORY="+"'"+menuCategory+"'";
+			String dishquery = "SELECT * FROM DISH WHERE RESTAURANT_ID=" + "'"
+					+ restaurantid + "'" + " AND MENU_CATEGORY=" + "'"
+					+ menuCategory + "'";
 			ResultSet dishqueryrs = stm.executeQuery(dishquery);
-			while (dishqueryrs.next()){
+			while (dishqueryrs.next()) {
 				int id = dishqueryrs.getInt("ID");
 				String description = dishqueryrs.getString("DESCRIPTION");
 				double price = dishqueryrs.getDouble("PRICE");
@@ -37,8 +39,8 @@ public class DishDao extends Dao {
 				dishes.add(dish);
 			}
 			return dishes;
-			
-		}catch(Exception E){
+
+		} catch (Exception E) {
 			System.out.println("SQL Error");
 			return null;
 		}

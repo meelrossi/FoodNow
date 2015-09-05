@@ -9,9 +9,9 @@ public class Restaurant {
 	private String name;
 	private Address address;
 	private int id;
-	
-	public Restaurant(List<MenuCategory> menu, double minAmount, String description, String name, Address address,
-			int id) {
+
+	public Restaurant(List<MenuCategory> menu, double minAmount,
+			String description, String name, Address address, int id) {
 		super();
 		this.menu = menu;
 		this.minAmount = minAmount;
