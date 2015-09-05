@@ -2,7 +2,6 @@ package ar.edu.itba.it.paw.model;
 
 import java.util.Calendar;
 
-import javax.management.relation.Role;
 import javax.servlet.http.HttpSession;
 
 public class User {

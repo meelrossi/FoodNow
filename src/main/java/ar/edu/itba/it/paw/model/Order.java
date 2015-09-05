@@ -1,5 +1,6 @@
 package ar.edu.itba.it.paw.model;
 
+import java.util.Calendar;
 import java.util.LinkedList;
 
 public class Order {
@@ -9,8 +10,10 @@ public class Order {
 	private LinkedList<Dish> dishes;
 	private double total;
 	private Restaurant restaurant;
+	private Calendar date;
 
-	public Order(int id, User user, Address address, LinkedList<Dish> dishes, double total, Restaurant restaurant) {
+	public Order(int id, User user, Address address, LinkedList<Dish> dishes, double total, Restaurant restaurant,
+			Calendar date) {
 		super();
 		this.id = id;
 		this.user = user;
@@ -18,6 +21,7 @@ public class Order {
 		this.dishes = dishes;
 		this.total = total;
 		this.restaurant = restaurant;
+		this.date = date;
 	}
 
 	public int getId() {

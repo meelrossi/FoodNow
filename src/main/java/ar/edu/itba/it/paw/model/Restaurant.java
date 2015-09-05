@@ -5,10 +5,10 @@ public class Restaurant {
 	private double minAmount;
 	private String description;
 	private String name;
-	private String address;
+	private Address address;
 	private int id;
 	
-	public Restaurant(Menu menu, double minAmount, String description, String name, String address,
+	public Restaurant(Menu menu, double minAmount, String description, String name, Address address,
 			int id) {
 		super();
 		this.menu = menu;
@@ -51,11 +51,11 @@ public class Restaurant {
 		this.name = name;
 	}
 
-	public String getAddress() {
+	public Address getAddress() {
 		return address;
 	}
 
-	public void setAddress(String address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 
