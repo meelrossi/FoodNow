@@ -9,6 +9,11 @@ import ar.edu.itba.it.paw.model.MenuCategory;
 import ar.edu.itba.it.paw.model.Restaurant;
 
 public class RestaurantService {
+	
+	public RestaurantService(){
+		super();
+	}
+	
 	public Restaurant getRestaurant(int id) throws SQLException {
 		RestaurantDao restaurantDao = RestaurantDao.getInstance();
 		MenuCategoryDao menuCategoryDao = MenuCategoryDao.getInstance();
