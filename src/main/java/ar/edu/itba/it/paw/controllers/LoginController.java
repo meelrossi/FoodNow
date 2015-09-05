@@ -1,9 +1,8 @@
 package ar.edu.itba.it.paw.controllers;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.text.ParseException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,24 +14,21 @@ public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+		dispatcher.forward(req, resp);
+	}
+	
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		String email = req.getParameter("email");
 		String password = req.getParameter("password");
 
 		LoginService loginService = new LoginService();
-		try {
-		    if (loginService.validate(email, password) == 0) {
-
-		    }
-		} catch (SQLException e) {
-		    // TODO Auto-generated catch block
-		    e.printStackTrace();
-		} catch (ParseException e) {
-		    // TODO Auto-generated catch block
-		    e.printStackTrace();
 		
-		}
-
+		
 	}
 	
 }
