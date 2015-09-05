@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ar.edu.itba.it.par.services.LoginService;
+
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -17,7 +19,7 @@ public class LoginController extends HttpServlet {
 
 		LoginService loginService = new LoginService();
 		if (loginService.validate(email, password) == 0) {
-
+			
 		}
 	}
 
