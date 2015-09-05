@@ -1,22 +1,22 @@
 package ar.edu.itba.it.paw.model;
 
-import java.util.LinkedList;
+import java.util.List;
 
 public class MenuCategory {
-	LinkedList<Dish> dishes;
+	List<Dish> dishes;
 	String categoryName;
 
-	public MenuCategory(LinkedList<Dish> dishes, String categoryName) {
+	public MenuCategory(List<Dish> dishes, String categoryName) {
 		super();
 		this.dishes = dishes;
 		this.categoryName = categoryName;
 	}
 
-	public LinkedList<Dish> getDishes() {
+	public List<Dish> getDishes() {
 		return dishes;
 	}
 
-	public void setDishes(LinkedList<Dish> dishes) {
+	public void setDishes(List<Dish> dishes) {
 		this.dishes = dishes;
 	}
 

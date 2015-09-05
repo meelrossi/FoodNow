@@ -15,27 +15,32 @@ public class DishDao extends Dao {
 		super();
 	}
 	
-	public DishDao getInstance(){
+	public static DishDao getInstance(){
 		if (instance == null) {
 			instance = new DishDao();
 		}
 		return instance;
 	}
 	
-	public List<Dish> getDishList(int restaurantid) throws SQLException{
-		Statement stm = connection.createStatement();
-		List<Dish> dishes = new LinkedList<Dish>();
-		String dishquery = "SELECT * FROM DISH WHERE RESTAURANT_ID="+restaurantid;
-		ResultSet dishqueryrs = stm.executeQuery(dishquery);
-		while (dishqueryrs.next()){
-			int id = dishqueryrs.getInt("ID");
-			String description = dishqueryrs.getString("DESCRIPTION");
-			double price = dishqueryrs.getDouble("PRICE");
-			String name = dishqueryrs.getString("NAME");
-			String menuCategory = dishqueryrs.getString("MENU_CATEGORY");
-			Dish dish = new Dish(id, name, description, price, menuCategory);
-			dishes.add(dish);
+	public List<Dish> getDishList(int restaurantid, String menuCategory){
+		try{
+			Statement stm = connection.createStatement();
+			List<Dish> dishes = new LinkedList<Dish>();
+			String dishquery = "SELECT * FROM DISH WHERE RESTAURANT_ID="+"'"+restaurantid+"'"+" AND MENU_CATEGORY="+"'"+menuCategory+"'";
+			ResultSet dishqueryrs = stm.executeQuery(dishquery);
+			while (dishqueryrs.next()){
+				int id = dishqueryrs.getInt("ID");
+				String description = dishqueryrs.getString("DESCRIPTION");
+				double price = dishqueryrs.getDouble("PRICE");
+				String name = dishqueryrs.getString("NAME");
+				Dish dish = new Dish(id, name, description, price, menuCategory);
+				dishes.add(dish);
+			}
+			return dishes;
+			
+		}catch(Exception E){
+			System.out.println("SQL Error");
+			return null;
 		}
-		return dishes;
 	}
 }
