@@ -41,7 +41,7 @@ public class DishDao extends Dao {
 			return dishes;
 
 		} catch (Exception E) {
-			System.out.println("SQL Error");
+			System.out.println("SQL Error: DishDao exception");
 			return null;
 		}
 	}

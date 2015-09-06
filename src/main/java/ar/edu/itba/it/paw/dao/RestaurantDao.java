@@ -52,7 +52,7 @@ public class RestaurantDao extends Dao {
 			}
 			return rest;	
 		}catch(Exception E){
-			System.out.println("SQL Error");
+			System.out.println("SQL Error: restaurant exception");
 			return null;
 		}
 	}

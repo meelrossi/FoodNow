@@ -38,7 +38,7 @@ public class MenuCategoryDao extends Dao {
 			}
 			return menuCategoryList;
 		} catch (Exception E) {
-			System.out.println("SQL Error");
+			System.out.println("SQL Error: menu cateogry exception");
 			return null;
 		}
 

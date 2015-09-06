@@ -21,7 +21,7 @@ public class RestaurantController extends HttpServlet {
 			req.getRequestDispatcher("/WEB-INF/jsp/restaurant?id="
 					+ req.getParameter("id")).forward(req, resp);
 		}catch(Exception E){
-			System.out.println("SQL Error");
+			System.out.println("SQL Error: failed to load restaurant controller");
 		}
 	}
 }
