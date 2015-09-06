@@ -18,4 +18,10 @@ public class LoginService {
 		return 406; //WRONG PASSWORD
 	}
 	
+	public int createUser(String name, String lastName, String address, String email, String birthdate, String password) {
+		
+		return UserDao.getInstance().createUser(name, lastName, address, email, birthdate, password);
+		
+	}
+	
 }

@@ -15,15 +15,17 @@ public class User {
 	private String password;
 	private int userLevel;
 
-	public User(int id, String name, String lastname, Address address, String email, Calendar birthDate, int userLevel) {
+	public User(int id, String name, String lastname, Address address, String email,String password, Calendar birthDate, int userLevel) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.lastname = lastname;
 		this.address = address;
 		this.email = email;
+		this.password = password;
 		this.birthDate = birthDate;
 		this.userLevel = userLevel;
+	
 	}
 
 	public int getId() {

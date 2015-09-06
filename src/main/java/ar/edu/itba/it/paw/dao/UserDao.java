@@ -8,8 +8,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-import javax.management.relation.Role;
-
 import ar.edu.itba.it.paw.model.Address;
 import ar.edu.itba.it.paw.model.User;
 
@@ -29,22 +27,40 @@ public class UserDao extends Dao {
 
 	public User getUser(String email) throws SQLException, ParseException {
 		Statement stm = connection.createStatement();
-		String qry = "SELECT * FROM USER WHERE EMAIL =" + email;
+		System.out.println(email);
+		String qry = "SELECT * FROM FN_USER WHERE EMAIL = '" + email + "';";
 		ResultSet rs = stm.executeQuery(qry);
 		User user = null;
 		while(rs.next()){
 			String name = rs.getString("NAME");
-			String lastname = rs.getString("LASTNAME");
+			String lastname = rs.getString("LASTMANE");
+			String password = rs.getString("PASSWORD");
 			int id = rs.getInt("ID");
 			Calendar birthDate = Calendar.getInstance();
-			SimpleDateFormat sdf = new SimpleDateFormat("dd mm yyyy", Locale.US);
-			birthDate.setTime(sdf.parse(rs.getString("BIRTHDATE")));// all done
-			Address address = new Address(rs.getString("STREET"), rs.getInt("NUMBER"));
-			int userLevel = rs.getInt("USER_LEVEL");
-			user = new User(id, name, lastname, address, email, birthDate, userLevel);
+			birthDate.setTime(rs.getDate("BIRTHDATE"));// all done
+			int userLevel = rs.getInt("FN_USER_LEVEL");
+			user = new User(id, name, lastname, null, email, password, birthDate, userLevel);
 			
 		}
 			
 		return user;
+	}
+	
+	public int createUser(String name, String lastName, String address, String email, String birthdate, String password) {
+		
+		Statement stm;
+		
+		try {
+			stm = connection.createStatement();
+			String qry = "INSERT INTO FN_USER VALUES (" + name + "," + lastName + "," + email + "," + birthdate + "," + password + ", 2 )";
+			ResultSet rs = stm.executeQuery(qry);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return 400;
+		}
+		
+		return 200;
+		
 	}
 }

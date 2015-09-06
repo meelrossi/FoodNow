@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 public abstract class Dao {
 	private static String database = "jdbc:postgresql://localhost/pawTest";
-	private static String user = "paw";
-	private static String password = "paw";
+	private static String user = "postgres";
+	private static String password = "postgres";
 	protected Connection connection;
 	
 	public Dao() {

@@ -2,24 +2,24 @@
 <div id="body">
 	<div class="container-fluid">
 	    <section class="container">				
-				<div class="col-md-4">
+				<form action="Login" method="post" class="col-md-4">
 					<h3 class="dark-grey">Iniciar Sesi&oacuten</h3>
 					<div class="row">	
 						<div class="form-group col-lg-12">
 							<label>Mail</label>
-							<input type="" name="" class="form-control" id="" value="">
+							<input type="text" name="email" class="form-control" id="" value="">
 						</div>
 					</div>
 					<div class="row">
 						<div class="form-group col-lg-12">
 							<label>Contrase&ntildea</label>
-							<input type="password" name="" class="form-control" id="" value="">
+							<input type="password" name="password" class="form-control" id="" value="">
 						</div>
 					</div>
 					<div class="row submit-wrapper">
 						<button type="submit" class="btn btn-primary submit-button">Aceptar</button>
 					</div>
-				</div>
+				</form>
 				<div class="col-md-2">
 					<div class="separator"></div>
 				</div>
