@@ -49,6 +49,7 @@ public class RestaurantDao extends Dao {
 				address = new Address(street, number);
 			}
 			rest = new Restaurant(menue, minAmount, description, name, address, id, 0);
+
 		}
 		return rest;
 	}

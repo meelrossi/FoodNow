@@ -1,6 +1,7 @@
 package ar.edu.itba.it.paw.controllers;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,9 +21,8 @@ public class RestaurantController extends HttpServlet {
 		try{
 			Restaurant restaurant = (new RestaurantService()).getRestaurant(restaurantid);
 			req.setAttribute("restaurant", restaurant);
-			req.getRequestDispatcher("/WEB-INF/jsp/restaurant?id="
-					+ req.getParameter("id")).forward(req, resp);
-		}catch(Exception E){
+			req.getRequestDispatcher("/WEB-INF/jsp/restaurant.jsp").forward(req, resp);
+		}catch(SQLException E){
 			System.out.println("SQL Error: failed to load restaurant controller");
 		}
 	}
