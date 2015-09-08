@@ -4,9 +4,12 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html lang="en-US">
 	<head>
+		<meta charset="UTF-8"/>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+		<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+	 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link href="css/star-rating.min.css" media="all" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
 		<div id="container">

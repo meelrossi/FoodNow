@@ -241,19 +241,8 @@ img {
 }
 
 .restaurant-info {
-  padding: 0;
-}
-
-.rating {
-  margin-top: 60px; 
-  padding: 10px;
-  text-align: right;
-}
-
-.rating-star {
-  display: inline-block;
-  font-size: 18px;
-  color: #22B26A;
+  display: flex;
+  align-items: center;
 }
 
 .filters {
@@ -263,7 +252,7 @@ img {
 
 .fading-side-menu.affix-top {
     opacity: 1;
-    transition: opacity 1s
+    transition: opacity 1s;
 }
 
 .fading-side-menu.affix {
@@ -272,7 +261,7 @@ img {
 
 .fading-side-menu.affix {
     opacity: 0.2;
-    transition: opacity 5s
+    transition: opacity 5s;
 }
 
 .fading-side-menu.affix:hover {
@@ -301,10 +290,6 @@ img {
   width: 500px;
   height: 350px;
   margin: 50px;
-}
-
-.restaurant-info {
-  padding: 40px;
 }
 
 .restaurant-name {

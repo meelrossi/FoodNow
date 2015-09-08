@@ -13,7 +13,6 @@ public class RestaurantService {
 	public RestaurantService(){
 		super();
 	}
-	
 	public Restaurant getRestaurant(int id) throws SQLException {
 		RestaurantDao restaurantDao = RestaurantDao.getInstance();
 		MenuCategoryDao menuCategoryDao = MenuCategoryDao.getInstance();

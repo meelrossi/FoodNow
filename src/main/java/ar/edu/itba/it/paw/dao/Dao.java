@@ -3,17 +3,18 @@ package ar.edu.itba.it.paw.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.HashMap;
 
 public abstract class Dao {
 	private static String database = "jdbc:postgresql://localhost/pawTest";
-	private static String user = "FMZ";
-	private static String password = "paw";
+	private static String user = "melisaanabellarossi";
+	private static String password = "03031994";
 	protected Connection connection;
-	
+
 	public Dao() {
 		connect();
 	}
-	
+
 	protected void connect() {
 
 		System.out.println("-------- PostgreSQL " + "JDBC Connection Testing ------------");
@@ -55,9 +56,9 @@ public abstract class Dao {
 		this.connection = connection;
 
 	}
-	
+
 	public void closeConnection() throws SQLException {
 		connection.close();
-		
+
 	}
 }

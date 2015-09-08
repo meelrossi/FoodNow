@@ -9,9 +9,10 @@ public class Restaurant {
 	private String name;
 	private Address address;
 	private int id;
-
+	private int rating;
+	
 	public Restaurant(List<MenuCategory> menu, double minAmount,
-			String description, String name, Address address, int id) {
+			String description, String name, Address address, int id, int rating) {
 		super();
 		this.menu = menu;
 		this.minAmount = minAmount;
@@ -20,7 +21,16 @@ public class Restaurant {
 		this.address = address;
 		this.id = id;
 	}
-
+	
+	public Restaurant(double minAmount, String description, String name, Address address, int id, int rating) {
+		this.minAmount = minAmount;
+		this.description = description;
+		this.name = name;
+		this.address = address;
+		this.id = id;
+		this.setRating(rating);
+	}
+	
 	public List<MenuCategory> getMenu() {
 		return menu;
 	}
@@ -63,5 +73,13 @@ public class Restaurant {
 
 	public int getId() {
 		return id;
+	}
+
+	public int getRating() {
+		return rating;
+	}
+
+	public void setRating(int rating) {
+		this.rating = rating;
 	}
 }
