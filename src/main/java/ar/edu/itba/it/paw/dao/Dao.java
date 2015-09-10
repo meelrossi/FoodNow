@@ -3,7 +3,6 @@ package ar.edu.itba.it.paw.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.HashMap;
 
 public abstract class Dao {
 	private static String database = "jdbc:postgresql://localhost/pawTest";

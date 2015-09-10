@@ -15,7 +15,20 @@
 		<servlet-name>RestaurantList</servlet-name>
 		<servlet-class>ar.edu.itba.it.paw.controllers.RestaurantListController</servlet-class>
 	</servlet>
-	
+	<servlet>
+		<servlet-name>Index</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.controllers.IndexController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Restaurant</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.controllers.RestaurantController</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AddRestaurant</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.controllers.AddRestaurantController</servlet-class>
+	</servlet>
+
+
 	<servlet-mapping>
 		<servlet-name>Login</servlet-name>
 		<url-pattern>/Login</url-pattern>
@@ -24,16 +37,18 @@
 		<servlet-name>RestaurantList</servlet-name>
 		<url-pattern>/restaurantList</url-pattern>
 	</servlet-mapping>
-
-	<servlet>
-		<servlet-name>Restaurant</servlet-name>
-		<servlet-class>ar.edu.itba.it.paw.controllers.RestaurantController</servlet-class>
-	</servlet>
-
+	<servlet-mapping>
+		<servlet-name>Index</servlet-name>
+		<url-pattern>/index</url-pattern>
+	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Restaurant</servlet-name>
 		<url-pattern>/restaurant</url-pattern>
 	</servlet-mapping>
-	
+	<servlet-mapping>
+		<servlet-name>AddRestaurant</servlet-name>
+		<url-pattern>/addRestaurant</url-pattern>
+	</servlet-mapping>
+
 
 </web-app>

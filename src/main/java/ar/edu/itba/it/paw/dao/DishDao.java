@@ -1,7 +1,6 @@
 package ar.edu.itba.it.paw.dao;
 
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;

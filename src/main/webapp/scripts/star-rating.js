@@ -257,7 +257,7 @@
                 css = (self.rtl) ? 'rating-container-rtl' : 'rating-container',
                 stars = self.getStars();
             if (self.glyphicon) {
-                css += (self.symbol === '\ue006' ? ' rating-gly-star' : ' rating-gly') + self.ratingClass;
+                css += (self.symbol === '&#9733' ? ' rating-gly-star' : ' rating-gly') + self.ratingClass;
             } else {
                 css += isEmpty(self.ratingClass) ? ' rating-uni' : ' ' + self.ratingClass;
             }
