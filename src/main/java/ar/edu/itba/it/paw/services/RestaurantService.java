@@ -20,7 +20,7 @@ public class RestaurantService {
 		MenuCategoryDao menuCategoryDao = MenuCategoryDao.getInstance();
 		Restaurant restaurant = restaurantDao.getRestaurant(id);
 		List<MenuCategory> menu = menuCategoryDao.getMenuCategoryList(id);
-		restaurant.setMenu(menu);
+//		restaurant.setMenu(menu);
 		return restaurant;
 	}
 

@@ -25,9 +25,9 @@ public class DishDao extends Dao {
 		try {
 			Statement stm = connection.createStatement();
 			List<Dish> dishes = new LinkedList<Dish>();
-			String dishquery = "SELECT * FROM DISH WHERE RESTAURANT_ID=" + "'"
-					+ restaurantid + "'" + " AND MENU_CATEGORY=" + "'"
-					+ menuCategory + "'";
+			String dishquery = "SELECT * FROM DISH WHERE RESTAURANT_ID="
+					+ restaurantid + " AND MENU_CATEGORY="+"'"
+					+ menuCategory+"'";
 			ResultSet dishqueryrs = stm.executeQuery(dishquery);
 			while (dishqueryrs.next()) {
 				int id = dishqueryrs.getInt("ID");

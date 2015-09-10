@@ -16,9 +16,9 @@
 			<h4 class="menu-title">MENU</h4>
 			<div class="menu-type-container">
 				<c:forEach var="menutype" items="${restaurant.menu}">
-					<h3 class="menu-type"><c:out value="${menutype.categoryName}"/></h3>
+					<h3 class="menu-type"><c:out value=""/></h3>
 					<div class="media">
-						<c:forEach var="dish" items="menutype.dishes">
+						<c:forEach var="dish" items="${menutype.dishes}">
 							<div class="row">
 								<div class="col-md-8 restaurant-info">
 								<a class="media-left" href="#">
@@ -27,7 +27,7 @@
 									<div class="media-body">
 										<h4 class="media-heading user_name"><c:out value="${dish.name}"/></h4>
 										<br><c:out value="${dish.description}"/></br>
-									</div>
+									</div>	
 								</div>
 								<div class="col-md-2 col-md-offset-1 quantity-container">
 									<form id='myform' method='POST' action='#'>

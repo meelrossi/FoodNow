@@ -1,5 +1,6 @@
 package ar.edu.itba.it.paw.model;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Restaurant {
@@ -14,7 +15,7 @@ public class Restaurant {
 	private String availableTime;
 	
 	public Restaurant(){
-		
+		this.menu= new LinkedList<MenuCategory>();
 	}
 	
 	public Restaurant(List<MenuCategory> menu, double minAmount,
@@ -75,6 +76,10 @@ public class Restaurant {
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+	
+	public void setId(int id){
+		this.id=id;
 	}
 
 	public int getId() {

@@ -21,6 +21,7 @@ public class RestaurantListController extends HttpServlet{
 		String[] categories = req.getParameterValues("category");
 		List<Restaurant> restaurants = (new RestaurantListService()).getRestaurants(categories);
 		/*List<Action> actions = (ActionService.getInstance().getActions(0,"restaurantList"));*/
+
 		List<String> menuCategories = new MenuCategoryService().getMenuCategories();
 		
 		req.setAttribute("restaurants", restaurants);

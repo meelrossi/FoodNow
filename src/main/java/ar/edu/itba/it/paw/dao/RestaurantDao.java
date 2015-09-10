@@ -8,6 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import ar.edu.itba.it.paw.model.Address;
+import ar.edu.itba.it.paw.model.Dish;
 import ar.edu.itba.it.paw.model.MenuCategory;
 import ar.edu.itba.it.paw.model.Restaurant;
 
@@ -25,33 +26,40 @@ public class RestaurantDao extends Dao {
 		return instance;
 	}
 
-	public Restaurant getRestaurant(int id) throws SQLException {
-		Statement stm = connection.createStatement();
-		String query = "SELECT * FROM RESTAURANT WHERE ID=" + "'" + id + "'";
-		String menuquery = "SELECT DISTINCT MENU_CATEGORY FROM DISH WHERE RESTAURANT_ID=" + "'" + id + "'";
-		String addressquery = "SELECT * FROM ADDRESS WHERE ID=" + "'" + id + "'";
-		ResultSet queryrs = stm.executeQuery(query);
-		ResultSet menuqueryrs = stm.executeQuery(menuquery);
-		ResultSet addressqueryrs = stm.executeQuery(addressquery);
-		Restaurant rest = null;
-		while (queryrs.next()) {
-			String name = queryrs.getString("NAME");
-			double minAmount = queryrs.getDouble("MINAMOUNT");
-			String description = queryrs.getString("DESCRIPTION");
-			List<MenuCategory> menue = new LinkedList<MenuCategory>();
-			while (menuqueryrs.next()) {
-				menue.add(new MenuCategory(null, menuqueryrs.getString("MENU_CATEGORY")));
+	public Restaurant getRestaurant(int id){
+		try{
+			Statement stm = connection.createStatement();
+			String query = "SELECT * FROM RESTAURANT WHERE ID="+id;
+			ResultSet queryrs = stm.executeQuery(query);
+			Restaurant rest = new Restaurant();
+			int restaurantid = 0;
+			while(queryrs.next()){
+				restaurantid=queryrs.getInt("ID");
+				rest.setId(restaurantid);
+				rest.setName(queryrs.getString("NAME"));
+				rest.setDescription(queryrs.getString("DESCRIPTION"));
+				rest.setRating(4);
+				rest.setMinAmount(2);
 			}
-			Address address = null;
-			while (addressqueryrs.next()) {
-				String street = addressqueryrs.getString("STREET");
-				int number = addressqueryrs.getInt("NUMBER");
-				address = new Address(street, number);
+			String menuquery = "SELECT DISTINCT MENU_CATEGORY FROM DISH WHERE RESTAURANT_ID="+id;
+			ResultSet menuqueryrs = stm.executeQuery(menuquery);
+			MenuCategory menu = new MenuCategory();
+			String menuCategory = "S";
+			while(menuqueryrs.next()){
+				menuCategory=menuqueryrs.getString("MENU_CATEGORY");
+				menu.setCategoryName(menuCategory);
 			}
-			rest = new Restaurant(menue, minAmount, description, name, address, id, 0);
-
+			DishDao dishDao = DishDao.getInstance();
+			List<Dish> dishlist = dishDao.getDishList(restaurantid, menuCategory);
+			menu.setDishes(dishlist);
+			List<MenuCategory> list = new LinkedList<MenuCategory>();
+			list.add(menu);
+			rest.setMenu(list);
+			return rest;	
+		}catch(Exception E){
+			System.out.println("SQL Error: RestaurantDao exception");
+			return null;
 		}
-		return rest;
 	}
 
 	public List<Restaurant> getRestaurantListByCategories(String[] categories) throws SQLException {
@@ -96,5 +104,34 @@ public class RestaurantDao extends Dao {
 			addDao.addAdressToRestaurant(restaurantKey.getInt(1),res.getAddress());
 		}
 		return;
+	}
+
+	public List<Restaurant> getRestaurantList(String category) {
+		Statement stm;
+		try {
+			stm = connection.createStatement();
+			String restaurantquery = "SELECT RESTAURANT.*, COALESCE(RATE.RATING,0) AS RATING FROM (SELECT RESTAURANT_ID, AVG(RATING_VALUE) AS RATING FROM RATING GROUP BY RESTAURANT_ID) AS RATE RIGHT OUTER JOIN RESTAURANT ON RATE.RESTAURANT_ID = RESTAURANT.ID";
+			if (category != null) {
+				restaurantquery += " WHERE ID IN (SELECT DISTINCT RESTAURANT_ID FROM DISH WHERE MENU_CATEGORY = \'"
+						+ category + "\')";
+			}
+			ResultSet restaurantqueryrs = stm.executeQuery(restaurantquery);
+			List<Restaurant> rlist = new LinkedList<Restaurant>();
+			while (restaurantqueryrs.next()) {
+				int id = restaurantqueryrs.getInt("ID");
+				String description = restaurantqueryrs.getString("DESCRIPTION");
+				String name = restaurantqueryrs.getString("NAME");
+				int minAmount = restaurantqueryrs.getInt("MINAMOUNT");
+				Address address = new Address("Roosevelt", 5471);
+				int rating = restaurantqueryrs.getInt("RATING");
+				rlist.add(new Restaurant(minAmount, description, name, address,
+						id, rating));
+			}
+			return rlist;
+		} catch (SQLException e) {
+			System.out.println("SQL Exception: RestaurantList not found");
+			e.printStackTrace();
+			return null;
+		}
 	}
 }
