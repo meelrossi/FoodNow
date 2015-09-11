@@ -27,6 +27,10 @@
 		<servlet-name>AddRestaurant</servlet-name>
 		<servlet-class>ar.edu.itba.it.paw.controllers.AddRestaurantController</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>AddDish</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.controllers.AddDishController</servlet-class>
+	</servlet>
 
 
 	<servlet-mapping>
@@ -48,6 +52,10 @@
 	<servlet-mapping>
 		<servlet-name>AddRestaurant</servlet-name>
 		<url-pattern>/addRestaurant</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddDish</servlet-name>
+		<url-pattern>/addDish</url-pattern>
 	</servlet-mapping>
 
 

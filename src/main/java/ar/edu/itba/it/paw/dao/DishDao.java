@@ -1,6 +1,8 @@
 package ar.edu.itba.it.paw.dao;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
@@ -43,5 +45,16 @@ public class DishDao extends Dao {
 			System.out.println("SQL Error: DishDao exception");
 			return null;
 		}
+	}
+
+	public void addDish(Dish dish, int restaurantID) throws SQLException {
+		String restaurantQuery = "INSERT INTO DISH(DESCRIPTION, PRICE, NAME, RESTAURANT_ID, MENU_CATEGORY) VALUES (?,?,?,?,?)";
+		PreparedStatement preparedStatement = connection.prepareStatement(restaurantQuery, Statement.RETURN_GENERATED_KEYS);
+		preparedStatement.setString(1, dish.getDescription());
+		preparedStatement.setDouble(2, dish.getPrice());
+		preparedStatement.setString(3, dish.getName());
+		preparedStatement.setInt(4, restaurantID);
+		preparedStatement.setString(5, dish.getMenuCategory());
+		preparedStatement.execute();
 	}
 }

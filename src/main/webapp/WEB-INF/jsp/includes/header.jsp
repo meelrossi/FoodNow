@@ -15,7 +15,7 @@
 		<div id="container">
 			<div id="header">
 				<div class="header-logo">
-					<img src="images/logo.png" class="logo" alt="Food Now"/>
+					<a href="/FoodNow/index"><img src="images/logo.png" class="logo" alt="Food Now"/></a>
 					<button type="button" class="btn login-button" aria-label="Left Align">
 						<span class="glyphicon glyphicon-user login-span" aria-hidden="true"></span>
 						<p class="enter">INGRESAR</p>

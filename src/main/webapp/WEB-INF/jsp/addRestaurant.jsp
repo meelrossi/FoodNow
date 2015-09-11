@@ -12,30 +12,30 @@
 					</div>	
 					<div class="form-group col-lg-8">
 						<label>Calle *</label>
-						<input type="" name="addressStreet" class="form-control" id="" value="">
+						<input type="" name="addressStreet" required="required" class="form-control" id="" value="">
 					</div>
 					<div class="form-group col-lg-4">
 						<label>Numero *</label>
-						<input type="" name="addressNumber" class="form-control" id="" value="">
+						<input type="" name="addressNumber" required="required" class="form-control" id="" value="">
 					</div>
 					<div class="form-group col-lg-3">
 		        		<label for="c2">Costo de envio *</label>
 					    <div class="input-group"> 
 					        <span class="input-group-addon">$</span>
-					        <input type="number" name="deliveryCost" value="0" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" id="c2" />
+					        <input type="number" name="deliveryCost" required="required" value="0" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" id="c2" />
 					    </div> 
 					</div>
 					<div class="form-group col-lg-3">
 		        		<label for="c2">Monto minimo *</label>
 					    <div class="input-group"> 
 					        <span class="input-group-addon">$</span>
-					        <input type="number" name="minAmount" value="0" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" id="c2" />
+					        <input type="number" name="minAmount" required="required" value="0" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" id="c2" />
 					    </div> 
 					</div>
 					<br>
 					<div class="form-group col-lg-12">
 						<label>Horario *</label>
-						<input type="" name="availableTime" class="form-control" id="" value="">
+						<input type="" name="availableTime" required="required" class="form-control" id="" value="">
 					</div>
 					<div class="form-group col-lg-12">
 					  <label for="comment">Descripci&oacuten </label>

@@ -1,6 +1,7 @@
 package ar.edu.itba.it.paw.dao;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
@@ -53,6 +54,18 @@ public class MenuCategoryDao extends Dao {
 			}
 		} catch (Exception e) {
 			System.out.println("SQL Error");
+		}
+		return categories;
+	}
+	
+	public List<String> getCategoryNameList(int restaurantID) throws SQLException {
+		List<String> categories = new LinkedList<String>();
+		Statement stm = connection.createStatement();
+		String qry = "SELECT DISTINCT MENU_CATEGORY FROM DISH WHERE RESTAURANT_ID =" +restaurantID;
+		ResultSet rs = stm.executeQuery(qry);
+		while(rs.next()) {
+			String categoryName = rs.getString("MENU_CATEGORY");
+			categories.add(categoryName);
 		}
 		return categories;
 	}
