@@ -16,15 +16,12 @@ public abstract class Dao {
 	
 	protected void connect() {
 
-		System.out.println("-------- PostgreSQL " + "JDBC Connection Testing ------------");
-
 		try {
 
 			Class.forName("org.postgresql.Driver");
 
 		} catch (ClassNotFoundException e) {
 
-			System.out.println("Where is your PostgreSQL JDBC Driver? " + "Include in your library path!");
 			e.printStackTrace();
 			return;
 
@@ -40,7 +37,6 @@ public abstract class Dao {
 
 		} catch (SQLException e) {
 
-			System.out.println("Connection Failed! Check output console");
 			e.printStackTrace();
 			return;
 

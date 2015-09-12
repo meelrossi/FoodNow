@@ -9,10 +9,20 @@
 		<servlet-name>Login</servlet-name>
 		<servlet-class>ar.edu.itba.it.paw.controllers.LoginController</servlet-class>
 	</servlet>
-
+	<servlet>
+		<servlet-name>Register</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.controllers.RegisterController</servlet-class>
+	</servlet>
+	
+	
 	<servlet-mapping>
 		<servlet-name>Login</servlet-name>
 		<url-pattern>/Login</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>Register</servlet-name>
+		<url-pattern>/Register</url-pattern>
 	</servlet-mapping>
 
 </web-app>

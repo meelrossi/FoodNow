@@ -27,6 +27,47 @@ body {
   padding-bottom: 40px;
 }
 
+#userCreationSuccess {
+  display: none;
+}
+
+#userCreationFail {
+  display: none;
+}
+
+#emailMissmatch {
+  display: none;
+}
+
+#passwordMissmatch {
+  display: none;
+}
+
+#wrongPasswordOrUser2 {
+  display: none;
+}
+
+#wrongPasswordOrUser2:target {
+  display: inherit;
+}
+
+#userCreationSuccess:target {
+  display: inherit;
+}
+
+#userCreationFail:target {
+  display: inherit;
+}
+
+#emailMissmatch:target {
+  display: inherit;
+}
+
+#passwordMissmatch:target {
+  display: inherit;
+}
+
+
 .header-logo {
   border-top: solid 8px #22B26A;
   background-color: #66FFB2;
@@ -349,5 +390,7 @@ img {
 .media {
   border-bottom: 1px dotted #ccc;
 }
+
+
 input.qtyplus { width:25px; height:25px;}
 input.qtyminus { width:25px; height:25px;}
