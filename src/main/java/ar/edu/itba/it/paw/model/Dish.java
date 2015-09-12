@@ -6,6 +6,10 @@ public class Dish {
 	String description;
 	double price;
 	String menuCategory;
+	
+	public Dish() {
+		
+	}
 
 	public Dish(int id, String name, String description, double price,
 			String menuCategory) {

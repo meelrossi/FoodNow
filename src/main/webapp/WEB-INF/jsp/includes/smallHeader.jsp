@@ -12,7 +12,7 @@
 		<div id="container">
 			<div id="header">
 				<div class="header-logo-mini">
-					<img src="images/logo-mini.png" class="logo-mini" alt="Food Now"/>
+					<a href="/FoodNow/index"><img src="images/logo-mini.png" class="logo-mini" alt="Food Now"/></a>
 					<button type="button" class="btn login-button" aria-label="Left Align">
 							<span class="glyphicon glyphicon-user login-span" aria-hidden="true"></span>
 							<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>

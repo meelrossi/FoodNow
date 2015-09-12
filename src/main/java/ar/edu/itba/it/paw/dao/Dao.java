@@ -9,6 +9,7 @@ public abstract class Dao {
 	private static String user = "postgres";
 
 	private static String password = "postgres";
+
 	protected Connection connection;
 
 	public Dao() {
