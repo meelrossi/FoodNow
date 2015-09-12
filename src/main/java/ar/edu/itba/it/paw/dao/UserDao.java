@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
+
 import ar.edu.itba.it.paw.model.Address;
 import ar.edu.itba.it.paw.model.User;
 
@@ -40,11 +41,10 @@ public class UserDao extends Dao {
 			birthDate.setTime(rs.getDate("BIRTHDATE"));// all done
 			int userLevel = rs.getInt("FN_USER_LEVEL");
 			user = new User(id, name, lastname, null, email, password, birthDate, userLevel);
-			
 		}
-			
 		return user;
 	}
+
 	
 	public int createUser(String name, String lastName, String address, String email, String birthdate, String password) {
 		
@@ -62,5 +62,21 @@ public class UserDao extends Dao {
 		
 		return 200;
 		
+	}
+	public int getUserLevel(int userId) {
+		Statement stm;
+		int userLevel = -1; // -1 IF USER NOT FOUND
+		try {
+			stm = connection.createStatement();
+			String qry = "SELECT USER_LEVEL FROM USER WHERE ID =" + userId;
+			ResultSet rs = stm.executeQuery(qry);
+			while (rs.next()) {
+				userLevel = rs.getInt("USER_LEVEL");
+			}
+		} catch (SQLException e) {
+			System.out.println("SQL Exception when getting userLevel");
+			e.printStackTrace();
+		}
+		return userLevel;
 	}
 }

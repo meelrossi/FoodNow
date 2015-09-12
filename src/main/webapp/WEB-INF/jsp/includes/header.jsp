@@ -4,9 +4,12 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html lang="en-US">
 	<head>
+		<meta charset="UTF-8"/>
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css"/>
+	 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link href="css/star-rating.min.css" media="all" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
 	</head>
 	<body>
 		<div id="container">
@@ -17,24 +20,4 @@
 						<span class="glyphicon glyphicon-user login-span" aria-hidden="true"></span>
 						<p class="enter">INGRESAR</p>
 					</button>
-				</div>    
-			    <div class="row">
-					<div class="col-md-12">
-						<div class="tabbable-panel">
-							<div class="tabbable-line">
-								<ul class="nav nav-tabs ">
-									<li class="active">
-										<a href="#tab_default_1" data-toggle="tab">
-											<span class="glyphicon glyphicon-home home-span" aria-hidden="true"></span>
-										</a>
-									</li>
-									<li>
-										<a href="#tab_default_2" data-toggle="tab">
-										RESTORANES </a>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
 				</div>
-			</div>

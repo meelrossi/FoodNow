@@ -7,13 +7,14 @@ import java.sql.SQLException;
 public abstract class Dao {
 	private static String database = "jdbc:postgresql://localhost/pawTest";
 	private static String user = "postgres";
+
 	private static String password = "postgres";
 	protected Connection connection;
-	
+
 	public Dao() {
 		connect();
 	}
-	
+
 	protected void connect() {
 
 		System.out.println("-------- PostgreSQL " + "JDBC Connection Testing ------------");
@@ -55,9 +56,9 @@ public abstract class Dao {
 		this.connection = connection;
 
 	}
-	
+
 	public void closeConnection() throws SQLException {
 		connection.close();
-		
+
 	}
 }
