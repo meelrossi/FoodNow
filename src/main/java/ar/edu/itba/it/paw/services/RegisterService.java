@@ -7,10 +7,10 @@ import ar.edu.itba.it.paw.dao.UserDao;
 
 public class RegisterService {
 	
-	public int createUser(String name, String lastName, String address, String email, String birthdate, String password) {
+	public int createUser(String name, String lastName, String address, String email, String birthdate, String password, int userLvl) {
 		
 		try {
-			return UserDao.getInstance().createUser(name, lastName, address, email, birthdate, password);
+			return UserDao.getInstance().createUser(name, lastName, address, email, birthdate, password, userLvl);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

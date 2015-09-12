@@ -28,7 +28,7 @@ public class Restaurant {
 		this.address = address;
 		this.id = id;
 	}
-	
+
 	public Restaurant(double minAmount, String description, String name, Address address, int id, double rating) {
 		this.minAmount = minAmount;
 		this.description = description;

@@ -24,12 +24,21 @@
 		<servlet-class>ar.edu.itba.it.paw.controllers.RestaurantController</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>AsingRestaurant</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.controllers.AsingRestaurantController</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>AddRestaurant</servlet-name>
 		<servlet-class>ar.edu.itba.it.paw.controllers.AddRestaurantController</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>AddDish</servlet-name>
 		<servlet-class>ar.edu.itba.it.paw.controllers.AddDishController</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>AddManager</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.controllers.AddManagerController</servlet-class>
 	</servlet>
 
 	<servlet>
@@ -66,5 +75,15 @@
 		<servlet-name>Register</servlet-name>
 		<url-pattern>/Register</url-pattern>
 	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>AddManager</servlet-name>
+		<url-pattern>/addManager</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AsingRestaurant</servlet-name>
+		<url-pattern>/asingRestaurant</url-pattern>
+	</servlet-mapping>
+	
 
 </web-app>

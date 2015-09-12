@@ -20,6 +20,7 @@ public class RegisterController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		
+		
 		String email = req.getParameter("email");
 		String reEmail = req.getParameter("reEmail");
 		String name = req.getParameter("name");
@@ -39,7 +40,7 @@ public class RegisterController extends HttpServlet {
 		
 		RegisterService registerService = new RegisterService();
 		
-		int code = registerService.createUser(name, lastName, address, reEmail, birthday, rePassword);
+		int code = registerService.createUser(name, lastName, address, reEmail, birthday, rePassword, 2);
 		
 		if(code == 200){
 			resp.sendRedirect("/FoodNow/Login#userCreationSuccess");

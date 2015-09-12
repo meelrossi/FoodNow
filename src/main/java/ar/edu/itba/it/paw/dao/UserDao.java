@@ -8,8 +8,6 @@ import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
-
 import ar.edu.itba.it.paw.model.Address;
 
 import ar.edu.itba.it.paw.model.User;
@@ -48,9 +46,10 @@ public class UserDao extends Dao {
 	}
 
 	
-	public int createUser(String name, String lastName, String address, String email, String birthdate, String password) throws ParseException, SQLException {
+	public int createUser(String name, String lastName, String address, String email, String birthdate, String password, int userLvl) throws ParseException, SQLException {
 		
 		PreparedStatement stm;
+		PreparedStatement addressStm;
 		SimpleDateFormat formatter = new SimpleDateFormat("mm/dd/yyyy");
 		Date date = new Date(formatter.parse(birthdate).getTime());
 	
@@ -61,30 +60,57 @@ public class UserDao extends Dao {
 		stm.setString(3, email);
 		stm.setDate(4, date);
 		stm.setString(5, password);
-		stm.setInt(6, 2);
+		stm.setInt(6, userLvl);
 		
 		int code = stm.executeUpdate();
 		
-		if(code != 1)
+		User user = getUser(email);
+		
+		String addressQry = "INSERT INTO ADDRESS (id, address) VALUES (  ? , ?  )";
+		addressStm = connection.prepareStatement(addressQry);
+		addressStm.setInt(1, user.getId());
+		addressStm.setString(2, address);
+		
+		int addrCode = addressStm.executeUpdate();
+		
+		if(code != 1 || addrCode != 1)
 			return 400;
 		else
 			return 200;
 		
 	}
-	public int getUserLevel(int userId) {
+	
+	public User getUser(int id) throws SQLException{
+		
+		Statement stm = connection.createStatement();
+		String qry = "SELECT * FROM FN_USER WHERE ID = " + id + ";";
+		ResultSet rs = stm.executeQuery(qry);
+		User user = null;
+		while(rs.next()){
+			String name = rs.getString("NAME");
+			String lastname = rs.getString("LASTMANE");
+			String password = rs.getString("PASSWORD");
+			String email = rs.getString("EMAIL");
+			Calendar birthDate = Calendar.getInstance();
+			birthDate.setTime(rs.getDate("BIRTHDATE"));// all done
+			int userLevel = rs.getInt("FN_USER_LEVEL");
+			user = new User(id, name, lastname, null, email, password, birthDate, userLevel);
+		}
+		return user;
+		
+	}
+	
+	public int getUserLevel(int userId) throws SQLException{
 		Statement stm;
 		int userLevel = -1; // -1 IF USER NOT FOUND
-		try {
-			stm = connection.createStatement();
-			String qry = "SELECT USER_LEVEL FROM USER WHERE ID =" + userId;
-			ResultSet rs = stm.executeQuery(qry);
-			while (rs.next()) {
-				userLevel = rs.getInt("USER_LEVEL");
-			}
-		} catch (SQLException e) {
-			System.out.println("SQL Exception when getting userLevel");
-			e.printStackTrace();
-		}
+		
+		stm = connection.createStatement();
+		String qry = "SELECT USER_LEVEL FROM USER WHERE ID =" + userId;
+		ResultSet rs = stm.executeQuery(qry);
+		while (rs.next()) {
+			userLevel = rs.getInt("USER_LEVEL");
+		}	
+		
 		return userLevel;
 	}
 }
