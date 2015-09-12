@@ -9,6 +9,8 @@
 		<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css"/>
 	 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<link href="css/star-rating.min.css" media="all" rel="stylesheet" type="text/css" />
+		<script language="JavaScript" type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script language="JavaScript" type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	</head>
 	<body>

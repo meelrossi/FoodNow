@@ -1,12 +1,11 @@
 package ar.edu.itba.it.paw.controllers;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.text.ParseException;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,33 +24,22 @@ public class LoginController extends HttpServlet {
 	}
 	
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		
 		String email = req.getParameter("email");
 		String password = req.getParameter("password");
 
 		LoginService loginService = new LoginService();
 		
-		System.out.println("entre1");
+		int code = loginService.validate(email, password);
 		
-		try {
-			if (loginService.validate(email, password) == 200) {
-				HttpSession session = req.getSession();
-	            session.setMaxInactiveInterval(30*60);
-	    		System.out.println("entre2");
+		if (code == 200) {
+			HttpSession session = req.getSession();
+            session.setMaxInactiveInterval(30*60);
 
-	            resp.sendRedirect("/FoodNow/index");
-			} else {
-				resp.sendRedirect("/FoodNow/restoran");
-				System.out.println("entre3");
-
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+            resp.sendRedirect("/FoodNow/index");
+		} else {
+			resp.sendRedirect("/FoodNow/Login#wrongPasswordOrUser2");
 		}
 		
 		
