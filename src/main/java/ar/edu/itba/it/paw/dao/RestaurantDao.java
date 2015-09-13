@@ -37,7 +37,6 @@ public class RestaurantDao extends Dao {
 			while (queryrs.next()) {
 				restaurantid = queryrs.getInt("ID");
 				rest.setId(restaurantid);
-				System.out.println(queryrs.getString("NAME"));
 				rest.setName(queryrs.getString("NAME"));
 				rest.setDescription(queryrs.getString("DESCRIPTION"));
 				rest.setRating(queryrs.getDouble("RATING"));

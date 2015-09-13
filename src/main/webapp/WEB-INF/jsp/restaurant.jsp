@@ -19,6 +19,7 @@
 				</div>
 				<div class="row rating">
                 	<input id="input-21e" type="number" value="${restaurant.rating}"  data-symbol="&#9733;" readonly="true" data-default-caption="{rating}" data-star-captions="{}" class="rating" min=0 max=5 step=0.5 data-size="xs">
+					<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">Calificar</button>
                 	<c:url var="url" value="/ratings">
                     	<c:param name="id" value="${restaurant.id}" />
                 	</c:url>
@@ -56,6 +57,26 @@
 				<button type="submit" class="btn btn-primary submit-button" style="margin-left:50%">Realizar pedido</button>
 			</div>
 		</div>
+	</div>
+	<div id="myModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h3 class="modal-title"><c:out value="${restaurant.name}"/></h3>
+	      </div>
+		      <div class="modal-body">
+	      		<form method="POST" action="/FoodNow/addRating">
+		        	<label>Calificacion</label>
+		        	<input id="input-21e" type="number" name="rating" value="0"  data-symbol="&#9733;" data-default-caption="{rating}" data-star-captions="{}" class="rating" min=0 max=5 step=0.5 data-size="xs">
+		        	<input name="restaurantID" value="${restaurant.id}" style="display:none">
+		        	<label for="comment">Descripci&oacuten </label>
+					 <textarea name="description" class="form-control" rows="5" id="description"></textarea><br>
+		        	<button type="submit" class="btn btn-info" style="position:absolute;right:10px;bottom:10px">Calificar</button>
+		        </form>
+		      </div> 
+	  		</div>
+	  	</div>
 	</div>
 </div>
 <%@include file="includes/footer.jsp" %>

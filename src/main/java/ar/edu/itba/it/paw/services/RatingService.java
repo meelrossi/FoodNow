@@ -16,4 +16,12 @@ public class RatingService {
 			return null;
 		}
 	}
+	
+	public void addRating(Rating rat, int userID) {
+		try {
+			RatingDao.getInstance().addRating(rat, userID);
+		} catch (SQLException e) {
+			System.out.println("SQLError add rating");
+		}
+	}
 }

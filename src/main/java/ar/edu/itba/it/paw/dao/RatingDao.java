@@ -1,5 +1,6 @@
 package ar.edu.itba.it.paw.dao;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -38,5 +39,15 @@ public class RatingDao extends Dao{
 			ratings.add(r);
 		}
 		return ratings;
+	}
+	
+	public void addRating(Rating rat, int userID) throws SQLException {
+		String ratingQuery = "INSERT INTO RATING(FN_USER_ID, RESTAURANT_ID, DESCRIPTION, RATING_VALUE) VALUES (?,?,?,?)";
+		PreparedStatement preparedStatement = connection.prepareStatement(ratingQuery, Statement.RETURN_GENERATED_KEYS);
+		preparedStatement.setInt(1, userID);
+		preparedStatement.setInt(2,rat.getRestaurantID());
+		preparedStatement.setString(3,rat.getDescription());
+		preparedStatement.setDouble(4, rat.getValue());
+		preparedStatement.execute();
 	}
 }

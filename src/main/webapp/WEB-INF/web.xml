@@ -47,6 +47,10 @@
 		<servlet-name>Ratings</servlet-name>
 		<servlet-class>ar.edu.itba.it.paw.controllers.RatingsController</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>AddRating</servlet-name>
+		<servlet-class>ar.edu.itba.it.paw.controllers.AddRatingController</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Login</servlet-name>
 		<url-pattern>/Login</url-pattern>
@@ -86,5 +90,9 @@
 	<servlet-mapping>
 		<servlet-name>Ratings</servlet-name>
 		<url-pattern>/ratings</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddRating</servlet-name>
+		<url-pattern>/addRating</url-pattern>
 	</servlet-mapping>
 </web-app>
