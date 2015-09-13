@@ -52,10 +52,11 @@ public class MenuCategoryDao extends Dao {
 				String categoryName = rs.getString("MENU_CATEGORY");
 				categories.add( categoryName);
 			}
+			return categories;
 		} catch (Exception e) {
 			System.out.println("SQL Error");
+			return categories;
 		}
-		return categories;
 	}
 	
 	public List<String> getCategoryNameList(int restaurantID) throws SQLException {

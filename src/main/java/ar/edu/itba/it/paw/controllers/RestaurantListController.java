@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import ar.edu.itba.it.paw.model.Restaurant;
 import ar.edu.itba.it.paw.services.MenuCategoryService;
-import ar.edu.itba.it.paw.services.RestaurantListService;
+import ar.edu.itba.it.paw.services.RestaurantService;
 
 public class RestaurantListController extends HttpServlet{
 	
@@ -19,7 +19,7 @@ public class RestaurantListController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String[] categories = req.getParameterValues("category");
-		List<Restaurant> restaurants = (new RestaurantListService()).getRestaurants(categories);
+		List<Restaurant> restaurants = (new RestaurantService()).getRestaurants(categories);
 		/*List<Action> actions = (ActionService.getInstance().getActions(0,"restaurantList"));*/
 
 		List<String> menuCategories = new MenuCategoryService().getMenuCategories();

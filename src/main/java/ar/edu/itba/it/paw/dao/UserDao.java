@@ -8,7 +8,6 @@ import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import ar.edu.itba.it.paw.model.Address;
 
 import ar.edu.itba.it.paw.model.User;
 
@@ -34,7 +33,7 @@ public class UserDao extends Dao {
 		User user = null;
 		while(rs.next()){
 			String name = rs.getString("NAME");
-			String lastname = rs.getString("LASTMANE");
+			String lastname = rs.getString("LASTNAME");
 			String password = rs.getString("PASSWORD");
 			int id = rs.getInt("ID");
 			Calendar birthDate = Calendar.getInstance();
@@ -53,7 +52,7 @@ public class UserDao extends Dao {
 		SimpleDateFormat formatter = new SimpleDateFormat("mm/dd/yyyy");
 		Date date = new Date(formatter.parse(birthdate).getTime());
 	
-		String qry = "INSERT INTO FN_USER (name, lastmane, email, birthdate, password, fn_user_level) VALUES (  ? , ? , ? , ? , ? , ? )";
+		String qry = "INSERT INTO FN_USER (name, lastname, email, birthdate, password, fn_user_level) VALUES (  ? , ? , ? , ? , ? , ? )";
 		stm = connection.prepareStatement(qry);
 		stm.setString(1, name);
 		stm.setString(2, lastName);
@@ -88,7 +87,7 @@ public class UserDao extends Dao {
 		User user = null;
 		while(rs.next()){
 			String name = rs.getString("NAME");
-			String lastname = rs.getString("LASTMANE");
+			String lastname = rs.getString("LASTNAME");
 			String password = rs.getString("PASSWORD");
 			String email = rs.getString("EMAIL");
 			Calendar birthDate = Calendar.getInstance();

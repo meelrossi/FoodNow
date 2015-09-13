@@ -1,8 +1,6 @@
 package ar.edu.itba.it.paw.controllers;
 
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

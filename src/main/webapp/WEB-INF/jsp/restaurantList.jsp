@@ -36,13 +36,19 @@
           <div class="media">
             <div class="row restaurant-info">
               <div class="col-md-7">
-                <a class="media-left" href="#">
+                <c:url var="url" value="/restaurant">
+                    <c:param name="id" value="${restaurant.id}" />
+                </c:url>
+                <a class="media-left" href="${url}">
                   <img src="images/logo-restaurante.png"/>
                 </a>
                 <div class="media-body">
                   <h4 class="media-heading user_name"><c:out value="${restaurant.name}"/></h4>
                   <br><c:out value="${restaurant.address.street}"/>  <c:out value="${restaurant.address.number}"/>
-                  <br><a>Ver Menu</a>
+                  <br>
+                  <a href="${url}">
+                    Ver menu
+                  </a>
                   <div class="row actions-row">
                     <button type="button" title="Eliminar restoran" class="btn btn-danger btn-circle"><i class="glyphicon glyphicon-remove"></i></button>
                     <button type="button" title="Editar restoran" class="btn btn-primary btn-circle"><i class="glyphicon glyphicon-pencil"></i></button>

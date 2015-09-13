@@ -8,7 +8,6 @@ public class MenuCategory {
 	String categoryName;
 
 	public MenuCategory(){
-		this.dishes = new LinkedList();
 	}
 	
 	public MenuCategory(String categoryName) {

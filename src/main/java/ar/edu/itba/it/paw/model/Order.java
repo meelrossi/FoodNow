@@ -21,7 +21,7 @@ public class Order {
 		this.dishes = dishes;
 		this.total = total;
 		this.restaurant = restaurant;
-		this.date = date;
+		this.setDate(date);
 	}
 
 	public int getId() {
@@ -70,6 +70,14 @@ public class Order {
 
 	public void setRestaurant(Restaurant restaurant) {
 		this.restaurant = restaurant;
+	}
+
+	public Calendar getDate() {
+		return date;
+	}
+
+	public void setDate(Calendar date) {
+		this.date = date;
 	}
 
 }

@@ -12,6 +12,7 @@
 		<script language="JavaScript" type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script language="JavaScript" type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
 		<div id="container">

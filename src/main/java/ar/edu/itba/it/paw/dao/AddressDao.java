@@ -1,6 +1,7 @@
 package ar.edu.itba.it.paw.dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -30,4 +31,16 @@ public class AddressDao extends Dao{
 		preparedStatement.execute();
 	}
 	
+	public Address getRestaurantAddress(int restaurant_id) throws SQLException {
+		Statement stm;
+		stm = connection.createStatement();
+		String addressQuery = "SELECT * FROM ADDRESS WHERE RESTAURANT_ID = " + restaurant_id;
+		ResultSet addressRs = stm.executeQuery(addressQuery);
+		Address add = new Address();
+		while (addressRs.next()) {
+			add.setStreet(addressRs.getString("STREET"));
+			add.setNumber(addressRs.getInt("STREET_NUMBER"));
+		}
+		return add;
+	}
 }

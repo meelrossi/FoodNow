@@ -8,6 +8,7 @@ body {
   padding: 0;
   height: 100%;
   width: 100%;
+  font-family: 'Open Sans', sans-serif;
 }
 
 #container {
@@ -151,7 +152,16 @@ body {
   padding-top: 0;
 }
 
-.col-md-5 .clear-rating {
+.address {
+  font-size: 25px;
+}
+
+.availableTime {
+  font-size: 20px;
+  color: grey;
+}
+
+.col-md-5 .clear-rating , .restaurant-detail .clear-rating, .col-sm-1 .clear-rating, .col-sm-1 .caption{
   display: none !important;
 }
 /* NavBar */
@@ -380,6 +390,11 @@ img {
   padding: 40px;
 }
 
+.restaurant-description {
+  padding-top: 30px;
+  height: 200px;
+}
+
 .menu-type {
   border-bottom: solid 1px #22B26A;
   padding: 20px;
@@ -418,6 +433,39 @@ img {
   border-bottom: 1px dotted #ccc;
 }
 
+.restaurant-view, .rating-view {
+  padding: 30px;
+}
+
+.thumbnail {
+    padding:0px;
+    margin-bottom: 0px;
+}
+.panel {
+  position:relative;
+}
+.panel>.panel-heading:after,.panel>.panel-heading:before{
+  position:absolute;
+  top:11px;left:-16px;
+  right:100%;
+  width:0;
+  height:0;
+  display:block;
+  content:" ";
+  border-color:transparent;
+  border-style:solid solid outset;
+  pointer-events:none;
+}
+.panel>.panel-heading:after{
+  border-width:7px;
+  border-right-color:#f7f7f7;
+  margin-top:1px;
+  margin-left:2px;
+}
+.panel>.panel-heading:before{
+  border-right-color:#ddd;
+  border-width:8px;
+}
 
 input.qtyplus { width:25px; height:25px;}
 input.qtyminus { width:25px; height:25px;}
