@@ -29,4 +29,22 @@ public class LoginService {
 		return 406; //WRONG PASSWORD
 	}
 	
+	public int getUserId (String email) {
+		
+		User user =  null;
+		
+		try {
+			user = UserDao.getInstance().getUser(email);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return user != null ? user.getId(): -1;
+		
+	}
+	
 }

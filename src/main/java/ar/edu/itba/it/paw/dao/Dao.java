@@ -1,14 +1,13 @@
 package ar.edu.itba.it.paw.dao;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public abstract class Dao {
-	private static String database = "jdbc:postgresql://localhost/pawTest";
-	private static String user = "postgres";
-
-	private static String password = "postgres";
 
 	protected Connection connection;
 
@@ -17,40 +16,34 @@ public abstract class Dao {
 	}
 
 	protected void connect() {
-
-		try {
-
-			Class.forName("org.postgresql.Driver");
-
-		} catch (ClassNotFoundException e) {
-
-			e.printStackTrace();
-			return;
-
-		}
-
-		System.out.println("PostgreSQL JDBC Driver Registered!");
-
-		Connection connection = null;
-
-		try {
-
-			connection = DriverManager.getConnection(database, user, password);
-
-		} catch (SQLException e) {
-
-			e.printStackTrace();
-			return;
-
-		}
-
-		if (connection != null) {
-			System.out.println("You made it, take control your database now!");
-		} else {
-			System.out.println("Failed to make connection!");
-		}
-
-		this.connection = connection;
+		
+		
+		Properties props = new Properties();
+        FileInputStream fis = null;
+        Connection con = null;
+        try {
+            fis = new FileInputStream(System.getProperty("user.dir") + "/src/main/webapp/WEB-INF/db_connection.properties");
+           // /FoodNow/src/main/webapp/WEB-INF/db_connection.properties
+         //   /FoodNow/src/main/java/ar/edu/itba/it/paw/dao/Dao.java
+            props.load(fis);
+ 
+            Class.forName(props.getProperty("DB_DRIVER_CLASS"));
+ 
+            con = DriverManager.getConnection(props.getProperty("DB_URL"),
+                    props.getProperty("DB_USERNAME"),
+                    props.getProperty("DB_PASSWORD"));
+            
+            System.out.println("Conected to the database...");
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (ClassNotFoundException e){
+        	e.printStackTrace();
+        } catch(SQLException e) {
+        	e.printStackTrace();
+        }
+        
+		this.connection = con;
 
 	}
 

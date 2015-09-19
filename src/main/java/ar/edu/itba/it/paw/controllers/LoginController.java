@@ -34,7 +34,11 @@ public class LoginController extends HttpServlet {
 		if (code == 200) {
 			HttpSession session = req.getSession();
             session.setMaxInactiveInterval(30*60);
-
+            int userId = loginService.getUserId(email);
+            if (userId != -1)
+            	session.setAttribute("userId", userId);
+            else
+            	resp.sendRedirect("/FoodNow/Login#error");
             resp.sendRedirect("/FoodNow/index");
 		} else {
 			resp.sendRedirect("/FoodNow/Login#wrongPasswordOrUser2");

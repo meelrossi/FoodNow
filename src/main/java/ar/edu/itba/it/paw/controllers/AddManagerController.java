@@ -76,9 +76,9 @@ public class AddManagerController extends HttpServlet {
 		}
 		
 		if(code == 200){
-			resp.sendRedirect("/AsingRestaurant/" + user.getId());
+			resp.sendRedirect("/FoodNow/asingRestaurant/" + user.getId());
 		} else {
-			resp.sendRedirect("/AddManager#ErrorCreatingManager");
+			resp.sendRedirect("/FoodNow/addManager#ErrorCreatingManager");
 		}
 		
 	}

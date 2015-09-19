@@ -36,7 +36,7 @@
 			</div>
 			
 			<div class="col-md-8" style="margin-right:50%">
-				<form action="AddManagerController" method="post" class="col-md-6">
+				<form action="addManager" method="post" class="col-md-6">
 						<h3 class="dark-grey">Registrar Gerente</h3>
 						
 						<div class="form-group col-lg-6">
